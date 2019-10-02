@@ -35,7 +35,7 @@ export default class Home extends React.Component {
                                 title={item.author}
                                 subtitle={item.description.substring(0,50) + ' ...'}                                 
                                 onPress={ () => this.props.navigation.navigate('ChatScreen',{ item }) }
-                                containerStyle={{ borderBottomWidth: 1 }}                         
+                                //containerStyle={{ borderBottomWidth: 1 }}                         
                                 >                                                           
                             </ListItem>
                         ))

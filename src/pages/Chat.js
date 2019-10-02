@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation';
 
@@ -52,19 +52,22 @@ export default class Chat extends React.Component {
     render() {
         return (
             <View>
-                <Text>{this.props.navigation.state.params.item.description}</Text>
+                <View>
+                    <Text>{this.props.navigation.state.params.item.description}</Text>
+                </View>      
+                
+                <View style={styles.chatInputcontainer}>
+                    
+                    <TextInput 
+                        style={styles.chatInput}
+                        placeholderTextColor='#999'                    
+                    />
 
-                <form id="inputChatForm" onSubmit={this.handleSubmit} >                            
-
-                    <input
-                        type="text"
-                        name="chat"                                                
-                        value={this.state.inputChat}
-                    />                
-        
-                    <button type="submit">Enviar</button>         
-                </form>
-            </View>
+                    <TouchableOpacity onPress={this.handleSubmit}>
+                        <Text>Send</Text>
+                    </TouchableOpacity>
+                </View>      
+            </View>      
         )
     };
 }
@@ -81,4 +84,19 @@ const styles = StyleSheet.create({
     backButton: {        
         color: '#FFF',
     },
+
+    chatInputcontainer: {                        
+        position: 'relative',
+        bottom:0,
+    },
+
+    chatInput: {        
+        borderWidth: 1,
+        borderStyle: 'dotted',
+        borderColor: '#555',
+        borderRadius: 10,
+        textAlign: 'center',
+        backgroundColor : "#FFF",
+        height: 50,        
+    }
 });
